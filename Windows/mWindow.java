@@ -41,18 +41,18 @@ public class mWindow extends javax.swing.JFrame {
         }
 
         private void setBackgroundColors() {
-                jPanel_wrapper.setBackground(Color.YELLOW);
-                jPanel_Holdings.setBackground(Color.RED);
+                jPanel_wrapper.setBackground(background_color);
+                jPanel_Holdings.setBackground(background_color);
                 jLabel_netWorth.setBackground(background_color);
                 jLabel_cash.setBackground(background_color);
-                jScrollpane.setBackground(Color.GREEN);
+                jScrollpane.setBackground(background_color);
                 jListHoldings.setBackground(background_color);
-                jPanel_wrapper2.setBackground(Color.BLUE);
+                jPanel_wrapper2.setBackground(background_color);
                 jPanelSearch.setBackground(background_color);
                 jLabel_searchStatus.setBackground(background_color);
                 jTextField_search.setBackground(background_color);
                 jLabel_search.setBackground(background_color);
-                jPanel_wrapper3.setBackground(Color.PINK);
+                jPanel_wrapper3.setBackground(background_color);
                 jPanelInfo.setBackground(background_color);
                 jLabel_info1.setBackground(background_color);
                 jLabel_info2.setBackground(background_color);
@@ -70,7 +70,7 @@ public class mWindow extends javax.swing.JFrame {
                 jPanel_Holdings.setForeground(text_color);
                 jLabel_netWorth.setForeground(text_color);
                 jLabel_cash.setForeground(text_color);
-                jScrollpane.setForeground(Color.GREEN);
+                jScrollpane.setForeground(text_color);
                 jListHoldings.setForeground(text_color);
                 jPanel_wrapper2.setForeground(text_color);
                 jPanelSearch.setForeground(text_color);
@@ -137,7 +137,7 @@ public class mWindow extends javax.swing.JFrame {
 
                 setBounds(new java.awt.Rectangle(WINDOW_DEFAULT_X, WINDOW_DEFAULT_Y, WINDOW_DEFAULT_WIDTH,
                                 WINDOW_DEFAULT_HEIGHT));
-                setMinimumSize(new Dimension(420, 100));
+                setMinimumSize(new Dimension(408, 100));
 
                 validate();
         }

@@ -112,7 +112,7 @@ public class mListItem extends JPanel implements ListCellRenderer<Holding> {
                 jLabel3.setText("worth:" + new DecimalFormat("0.00").format(value.getPrice() * value.getAmount()));
 
                 if (isSelected) {
-                        jLabel1.setForeground(Color.PINK);
+                        jLabel1.setForeground(mWindow.background_color);
                         jLabel1.setBackground(mWindow.foreground_color);
 
                         jLabel2.setForeground(mWindow.background_color);
