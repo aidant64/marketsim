@@ -47,11 +47,14 @@ public class mJFrameWindow extends javax.swing.JFrame {
                 // Set the background color of the panels (for visualization)
                 jPanel_left.setLayout(new BorderLayout());
 
-                JLabel label1 = new JLabel("Label 1");
-                JLabel label2 = new JLabel("Label 2");
+                JLabel label1 = new JLabel("Net Worth: $");
+                label1.setBorder(BorderFactory.createEmptyBorder(5, 10, 5, 10));
+                JLabel label2 = new JLabel("Cash: $");
+                label2.setBorder(BorderFactory.createEmptyBorder(5, 10, 5, 10));
 
                 // Create a JPanel to hold the labels at the top
                 JPanel labelsPanel = new JPanel();
+                labelsPanel.setBackground(Color.CYAN);
                 labelsPanel.setLayout(new BoxLayout(labelsPanel, BoxLayout.Y_AXIS));
                 labelsPanel.add(label1);
                 labelsPanel.add(label2);
@@ -82,11 +85,11 @@ public class mJFrameWindow extends javax.swing.JFrame {
                 jPanel_left.add(labelsPanel, BorderLayout.NORTH);
                 jPanel_left.add(scrollPane, BorderLayout.CENTER);
                 jPanel_left.add(buttonsPanel, BorderLayout.SOUTH);
-                jPanel_left.setBackground(Color.LIGHT_GRAY);
 
                 // ================================================================
 
                 jPanel_right.setBackground(Color.GREEN);
+                jPanel_left.setBackground(Color.YELLOW);
 
                 // Create a JSplitPane to divide the frame into two panels
                 JSplitPane splitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, jPanel_left, jPanel_right);
