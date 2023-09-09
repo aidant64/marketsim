@@ -87,6 +87,9 @@ public class Logic {
         cash -= transactionCost;
         HoldingsUtil.buy(ticker, quant, price, holdings);
         StorageUtil.overwriteFileLines(getHoldingsForWriting());
+        if (quant == 1) {
+            return "Status: Buy Executed! " + quant + " share of " + ticker;
+        }
         return "Status: Buy Executed! " + quant + " shares of " + ticker;
     }
 
@@ -94,6 +97,9 @@ public class Logic {
         cash += price * quant;
         HoldingsUtil.sell(ticker, quant, price, holdings);
         StorageUtil.overwriteFileLines(getHoldingsForWriting());
+        if (quant == 1) {
+            return "Status: Sell Executed! " + quant + " shares of " + ticker;
+        }
         return "Status: Sell Executed! " + quant + " shares of " + ticker;
     }
 
