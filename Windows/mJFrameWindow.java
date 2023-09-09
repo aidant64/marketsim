@@ -47,30 +47,27 @@ public class mJFrameWindow extends javax.swing.JFrame {
                 setSize(800, 500);
                 setMinimumSize(new Dimension(368, 100));
                 setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                getContentPane().setBackground(Color.RED);
+                // getContentPane().setBackground(Color.RED);
                 centerFrame();
 
                 jPanel_left = new JPanel();
                 jPanel_right = new JPanel();
-
-                createLeftPanelLayout();
-                initList();
-
+                jPanel_left.setMinimumSize(new Dimension(350, 1));
                 jPanel_right.setBackground(Color.GREEN);
                 jPanel_left.setBackground(Color.YELLOW);
 
+                createLeftPanelLayout();
+                createRightPanel();
+                // initList();
+
                 // Create a JSplitPane to divide the frame into two panels
                 JSplitPane splitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, jPanel_left, jPanel_right);
-
-                // Set the initial size of the left panel
-                splitPane.setDividerSize(0);
                 splitPane.setDividerLocation(350);
-                jPanel_left.setMinimumSize(new Dimension(350, 1));
-                // Create a solid curved purple border
+                splitPane.setDividerSize(0);
+
                 Border border = BorderFactory.createCompoundBorder(
                                 BorderFactory.createEmptyBorder(10, 10, 10, 10), // Outer line border (color
-                                BorderFactory.createLineBorder(Color.MAGENTA, 2, true));
-                // Apply the border to the left panel
+                                BorderFactory.createLineBorder(Color.MAGENTA, 2));
                 jPanel_left.setBorder(border);
                 jPanel_right.setBorder(border);
 
@@ -78,13 +75,54 @@ public class mJFrameWindow extends javax.swing.JFrame {
 
                 JPanel contentPane = new JPanel(new BorderLayout());
                 contentPane.setBackground(Color.BLUE);
-                // contentPane.setBorder(BorderFactory.createEmptyBorder(gapSize, gapSize,
-                // gapSize, 0));
                 contentPane.add(splitPane, BorderLayout.CENTER);
-
-                // Set the content pane for the frame
                 setContentPane(contentPane);
 
+        }
+
+        private void createRightPanel() {
+                jPanel_right.setLayout(new BorderLayout());
+
+                // Create a top panel to hold the "enter stock ticker" label and text field side
+                // by side
+                JPanel topPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
+
+                // Create and add the "enter stock ticker" label
+                JLabel labelStockTicker = new JLabel("Enter stock ticker:");
+                topPanel.add(labelStockTicker);
+
+                // Create and add the text field
+                JTextField textFieldStockTicker = new JTextField(15); // Adjust the size as needed
+                topPanel.add(textFieldStockTicker);
+
+                // Create a loading label
+                JLabel labelLoading = new JLabel("Loading");
+
+                // Create a JPanel to hold the "loading" label, label1, label2, and the custom
+                // Graph component
+                JPanel bottomPanel = new JPanel();
+                bottomPanel.setLayout(new BoxLayout(bottomPanel, BoxLayout.Y_AXIS));
+
+                // Add components to the bottom panel
+                bottomPanel.add(labelLoading);
+                bottomPanel.add(new JLabel("Label 1"));
+                bottomPanel.add(new JLabel("Label 2"));
+
+                // Create a custom Graph component (replace with your actual custom component)
+                Graph customGraph = new Graph(null); // Replace with your custom component
+
+                // Add the custom Graph component to the bottom panel
+                bottomPanel.add(customGraph);
+
+                // Create a border for the bottom panel
+                Border bottomBorder = BorderFactory.createLineBorder(Color.BLACK, 1);
+
+                // Apply the border to the bottom panel
+                bottomPanel.setBorder(bottomBorder);
+
+                // Add the top and bottom panels to the right panel
+                jPanel_right.add(topPanel, BorderLayout.NORTH);
+                jPanel_right.add(bottomPanel, BorderLayout.CENTER);
         }
 
         private void createLeftPanelLayout() {
@@ -160,4 +198,9 @@ public class mJFrameWindow extends javax.swing.JFrame {
         private javax.swing.JScrollPane jScrollpane;
         private javax.swing.JButton jButton_refresh;
         private javax.swing.JButton jButton2_help;
+
+        // right
+        private javax.swing.JTextField jTextField_quant;
+        private javax.swing.JTextField jTextField_search;
+        private Graph jPanel_graph;
 }

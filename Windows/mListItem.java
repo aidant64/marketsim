@@ -29,7 +29,7 @@ public class mListItem extends JPanel implements ListCellRenderer<Holding> {
                 jPanel1 = new javax.swing.JPanel();
                 jLabel1 = new javax.swing.JLabel();
                 jLabel2 = new javax.swing.JLabel();
-                jLabel3 = new JLabel();
+                jLabel3 = new javax.swing.JLabel();
                 jPanel2 = new javax.swing.JPanel();
 
                 add(jPanel1);
@@ -63,7 +63,7 @@ public class mListItem extends JPanel implements ListCellRenderer<Holding> {
                                                 .addGroup(jPanel1Layout.createSequentialGroup()
                                                                 .addComponent(jLabel1,
                                                                                 javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                                350, Short.MAX_VALUE)// 394
+                                                                                200, Short.MAX_VALUE)// 394
                                                                 .addContainerGap())
                                                 .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE,
                                                                 javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE));

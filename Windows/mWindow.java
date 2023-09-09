@@ -136,6 +136,7 @@ public class mWindow extends javax.swing.JFrame {
 
                 setBounds(new java.awt.Rectangle(WINDOW_DEFAULT_X, WINDOW_DEFAULT_Y, WINDOW_DEFAULT_WIDTH,
                                 WINDOW_DEFAULT_HEIGHT));
+                setMinimumSize(new Dimension(420, 100));
 
                 validate();
         }
@@ -250,6 +251,7 @@ public class mWindow extends javax.swing.JFrame {
                                                                 .addContainerGap()));
 
                 javax.swing.GroupLayout jPanel_wrapperLayout = new javax.swing.GroupLayout(jPanel_wrapper);
+                jPanel_wrapper.add(Box.createRigidArea(new Dimension(400, 0)));
                 jPanel_wrapper.setLayout(jPanel_wrapperLayout);
                 jPanel_wrapperLayout.setHorizontalGroup(
                                 jPanel_wrapperLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
