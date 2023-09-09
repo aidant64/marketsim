@@ -1,6 +1,6 @@
 package Main;
 
-import Windows.mWindow;
+import Windows.mJFrameWindow;
 
 public class Main {
 
@@ -9,7 +9,7 @@ public class Main {
         // Create and display the window/app
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new mWindow().setVisible(true);
+                new mJFrameWindow().setVisible(true);
             }
         });
 
