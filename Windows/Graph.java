@@ -14,9 +14,9 @@ public class Graph extends JComponent {
 
     Graph(ArrayList<Pair> points) {
         super();
-        //W = 500.0;
+        // W = 500.0;
         W = getSize().getWidth();
-        //H = 180.0;
+        // H = 180.0;
         H = getSize().getHeight();
         this.points = points;
     }
@@ -39,7 +39,7 @@ public class Graph extends JComponent {
         g2D.fillRect(0, 0, W.intValue(), H.intValue());
         g2D.setStroke(new BasicStroke(3f));
 
-        if (points.isEmpty()){
+        if (points.isEmpty()) {
             g2D.setColor(mWindow.foreground_color);
             g2D.drawString("Chart Unavailable / Unknown Network Error", 10, 10);
             return;
@@ -47,13 +47,14 @@ public class Graph extends JComponent {
 
         float max = points.get(0).y;
         float min = points.get(0).y;
-        for (Pair p:points){
-            if (p.y > max) max = p.y;
-            if (p.y < min) min = p.y;
+        for (Pair p : points) {
+            if (p.y > max)
+                max = p.y;
+            if (p.y < min)
+                min = p.y;
         }
         max = max + (max * 0.05f);
         min = min - (min * 0.05f);
-
 
         final double graphX = 32;
         final double graphY = H - 10;
@@ -65,9 +66,11 @@ public class Graph extends JComponent {
         g2D.drawString("6 Months", (int) (W - 64), 18);
 
         // x-axis, y-axis
-        //g2D.setStroke(new BasicStroke(3f));
-        //g2D.drawLine((int) graphX, (int) graphY, (int) (graphX + graphW), (int) (graphY));
-        //g2D.drawLine((int) graphX, (int) graphY, (int) graphX, (int) (graphY - graphH));
+        // g2D.setStroke(new BasicStroke(3f));
+        // g2D.drawLine((int) graphX, (int) graphY, (int) (graphX + graphW), (int)
+        // (graphY));
+        // g2D.drawLine((int) graphX, (int) graphY, (int) graphX, (int) (graphY -
+        // graphH));
 
         double s1 = max;
         double s2 = min + ((max - min) * .33f);
@@ -80,20 +83,18 @@ public class Graph extends JComponent {
 
         int size = points.size();
 
-        g2D.setStroke(new BasicStroke(mWindow.border_size));
+        g2D.setStroke(new BasicStroke(mWindow.BORDER_SIZE));
 
         double prevX = 0;
         double prevY = 0;
         int i = 0;
-        for(Pair pair : points){
-
+        for (Pair pair : points) {
 
             double x = graphX + (((double) pair.x / size) * graphW);
             double y = graphY - ((((double) pair.y - min) / (double) (max - min)) * graphH);
 
-
-            if(i != 0){
-                //g2D.fillOval((int) x, (int) y, 5, 5);
+            if (i != 0) {
+                // g2D.fillOval((int) x, (int) y, 5, 5);
                 g2D.drawLine((int) x, (int) y, (int) prevX, (int) prevY);
             }
 
@@ -101,7 +102,6 @@ public class Graph extends JComponent {
             prevY = y;
             i++;
         }
-
 
     }
 }
