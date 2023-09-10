@@ -87,10 +87,10 @@ public class mWindow extends javax.swing.JFrame {
                 jButton_refresh.setForeground(text_color);
                 jButton2_help.setForeground(text_color);
 
-                jButton_buy.setSelected(true);
-                jButton_sell.setSelected(true);
-                jButton_refresh.setSelected(true);
-                jButton2_help.setSelected(true);
+                jButton_buy.setSelected(false);
+                jButton_sell.setSelected(false);
+                jButton_refresh.setSelected(false);
+                jButton2_help.setSelected(false);
 
                 jLabel_cash.setOpaque(true);
                 jLabel_cash.setBackground(foreground_color);
@@ -227,47 +227,6 @@ public class mWindow extends javax.swing.JFrame {
                                 restartButton_pressed(evt);
                         }
                 });
-
-                // javax.swing.GroupLayout jPanel_HoldingsLayout = new
-                // javax.swing.GroupLayout(jPanel_Holdings);
-                // jPanel_Holdings.setLayout(jPanel_HoldingsLayout);
-                // jPanel_HoldingsLayout.setHorizontalGroup(
-                // jPanel_HoldingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                // .addComponent(jScrollpane, javax.swing.GroupLayout.Alignment.LEADING)
-                // .addComponent(jLabel_netWorth, javax.swing.GroupLayout.DEFAULT_SIZE,
-                // 350, Short.MAX_VALUE)// 200
-                // .addComponent(jLabel_cash, javax.swing.GroupLayout.DEFAULT_SIZE,
-                // javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                // .addGroup(jPanel_HoldingsLayout.createSequentialGroup()
-                // .addContainerGap()
-                // .addComponent(jButton_refresh)
-                // .addPreferredGap(
-                // javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                // .addComponent(jButton2_help)
-                // .addGap(0, 0, Short.MAX_VALUE)));
-                // jPanel_HoldingsLayout.setVerticalGroup(
-                // jPanel_HoldingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                // .addGroup(jPanel_HoldingsLayout.createSequentialGroup()
-                // .addComponent(jLabel_netWorth)
-                // .addPreferredGap(
-                // javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                // .addComponent(jLabel_cash)
-                // .addPreferredGap(
-                // javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                // .addComponent(jScrollpane,
-                // javax.swing.GroupLayout.DEFAULT_SIZE,
-                // 200, // 293
-                // javax.swing.GroupLayout.PREFERRED_SIZE)
-                // .addPreferredGap(
-                // javax.swing.LayoutStyle.ComponentPlacement.RELATED,
-                // 5,
-                // Short.MAX_VALUE)
-                // .addGroup(jPanel_HoldingsLayout
-                // .createParallelGroup(
-                // javax.swing.GroupLayout.Alignment.TRAILING)
-                // .addComponent(jButton2_help)
-                // .addComponent(jButton_refresh))
-                // .addContainerGap()));
 
                 javax.swing.GroupLayout jPanel_HoldingsLayout = new javax.swing.GroupLayout(jPanel_Holdings);
                 jPanel_Holdings.setLayout(jPanel_HoldingsLayout);
