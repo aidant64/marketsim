@@ -17,7 +17,7 @@ import java.util.ArrayList;
 public class mWindow extends javax.swing.JFrame {
         public static final Color text_color = new Color(112, 35, 157), foreground_color = new Color(112, 35, 157),
                         background_color = new Color(220, 220, 220);
-        public static final int BORDER_SIZE = 4, WINDOW_DEFAULT_WIDTH = 1000, WINDOW_DEFAULT_HEIGHT = 500,
+        public static final int BORDER_SIZE = 4, WINDOW_DEFAULT_WIDTH = 1100, WINDOW_DEFAULT_HEIGHT = 500,
                         WINDOW_DEFAULT_X = 300, WINDOW_DEFAULT_Y = 300;
         private final Logic logic;
 
@@ -44,7 +44,6 @@ public class mWindow extends javax.swing.JFrame {
                 jPanel_wrapper.setBackground(background_color);
                 jPanel_Holdings.setBackground(background_color);
                 jLabel_netWorth.setBackground(background_color);
-                jLabel_cash.setBackground(background_color);
                 jScrollpane.setBackground(background_color);
                 jListHoldings.setBackground(background_color);
                 jPanel_wrapper2.setBackground(background_color);
@@ -69,7 +68,6 @@ public class mWindow extends javax.swing.JFrame {
                 jPanel_wrapper.setForeground(text_color);
                 jPanel_Holdings.setForeground(text_color);
                 jLabel_netWorth.setForeground(text_color);
-                jLabel_cash.setForeground(text_color);
                 jScrollpane.setForeground(text_color);
                 jListHoldings.setForeground(text_color);
                 jPanel_wrapper2.setForeground(text_color);
@@ -95,9 +93,13 @@ public class mWindow extends javax.swing.JFrame {
                 jButton2_help.setSelected(true);
 
                 jLabel_cash.setOpaque(true);
+                jLabel_cash.setBackground(foreground_color);
+                jLabel_cash.setForeground(background_color);
+
                 jLabel_netWorth.setOpaque(true);
                 jLabel_netWorth.setBackground(foreground_color);
                 jLabel_netWorth.setForeground(background_color);
+
                 jButton_refresh.setOpaque(true);
                 jButton2_help.setOpaque(true);
 
@@ -132,12 +134,11 @@ public class mWindow extends javax.swing.JFrame {
                 setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
                 setTitle("Market Sim Game");
                 setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-                setFont(new java.awt.Font("Silom", 0, 12)); // NOI18N
                 setPreferredSize(new java.awt.Dimension(WINDOW_DEFAULT_WIDTH, WINDOW_DEFAULT_HEIGHT));
 
                 setBounds(new java.awt.Rectangle(WINDOW_DEFAULT_X, WINDOW_DEFAULT_Y, WINDOW_DEFAULT_WIDTH,
                                 WINDOW_DEFAULT_HEIGHT));
-                setMinimumSize(new Dimension(408, 100));
+                setMinimumSize(new Dimension(408, 410));
 
                 validate();
         }
@@ -186,15 +187,30 @@ public class mWindow extends javax.swing.JFrame {
                 jLabel_netWorth.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
                 jLabel_netWorth.setText("Net Worth: $");
                 jLabel_netWorth.setToolTipText("");
-                jLabel_netWorth.setBorder(javax.swing.BorderFactory.createEmptyBorder(2, 2, 2, 2));
-                jLabel_netWorth.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
+                jLabel_netWorth.setBorder(BorderFactory.createEmptyBorder(2, 5, 5, 5));
 
                 jLabel_cash.setText("USD: $");
                 jLabel_cash.setToolTipText("");
-                jLabel_cash.setBorder(javax.swing.BorderFactory.createEmptyBorder(2, 2, 2, 2));
+                jLabel_cash.setBorder(javax.swing.BorderFactory.createEmptyBorder(2, 5, 5,
+                                5));
 
                 jScrollpane.setBorder(null);
                 jScrollpane.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+
+                Border innerBorder = BorderFactory.createCompoundBorder(
+                                BorderFactory.createLineBorder(Color.GRAY, 1),
+                                BorderFactory.createEmptyBorder(0, 2, 0, 2));
+                Border border = BorderFactory.createCompoundBorder(
+                                BorderFactory.createEmptyBorder(0, 5, 0, 5),
+                                innerBorder);
+                jTextField_quant.setBorder(border);
+
+                // jButton_buy.setBorder(buyBorder);
+
+                Border searchBorder = BorderFactory.createCompoundBorder(
+                                BorderFactory.createLineBorder(Color.GRAY, 1),
+                                BorderFactory.createEmptyBorder(4, 2, 2, 2));
+                jTextField_search.setBorder(searchBorder);
 
                 // ======
 
@@ -273,8 +289,6 @@ public class mWindow extends javax.swing.JFrame {
                                 jPanel_HoldingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                 .addGroup(jPanel_HoldingsLayout.createSequentialGroup()
                                                                 .addComponent(jLabel_netWorth)
-                                                                .addPreferredGap(
-                                                                                javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                                 .addComponent(jLabel_cash)
                                                                 .addPreferredGap(
                                                                                 javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -316,11 +330,11 @@ public class mWindow extends javax.swing.JFrame {
 
                 jLabel_searchStatus.setText(" ");
 
-                jTextField_search.setText("search");
+                jTextField_search.setText("ex: AAPL or IBM");
                 jTextField_search.setMixingCutoutShape(null);
                 jTextField_search.addActionListener(new java.awt.event.ActionListener() {
                         public void actionPerformed(java.awt.event.ActionEvent evt) {
-                                jTextField_searchActionPerformed(evt);
+                                jTextField_searchActionPerformed(evt, jTextField_search.getText());
                         }
                 });
 
@@ -338,7 +352,7 @@ public class mWindow extends javax.swing.JFrame {
                 jLabel_info3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
                 jLabel_info3.setVerifyInputWhenFocusTarget(false);
 
-                jTextField_quant.setText(" Num shares");
+                jTextField_quant.setText("Num shares");
                 jTextField_quant.addActionListener(new java.awt.event.ActionListener() {
                         public void actionPerformed(java.awt.event.ActionEvent evt) {
                                 jTextField_quantActionPerformed(evt);
@@ -598,14 +612,15 @@ public class mWindow extends javax.swing.JFrame {
                 initComponentsBasedOnLogic(logic.generate_holdings_netWorth_cash());
         }
 
-        private void jTextField_searchActionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField_search.setText(jTextField_search.getText().toUpperCase());
-                jLabel_searchStatus.setText("...loading " + jTextField_search.getText() + "...");
+        private void jTextField_searchActionPerformed(java.awt.event.ActionEvent evt, String ticker) {
+                ticker = ticker.toUpperCase();
+                jTextField_search.setText(ticker);
+                jLabel_searchStatus.setText("...loading " + ticker + "...");
                 jPanelInfo.setVisible(false);
                 validate();
                 update(getGraphics());
 
-                String[] res = logic.searchEntered(jTextField_search.getText());
+                String[] res = logic.searchEntered(ticker);
 
                 if (res == null) {
                         jLabel_searchStatus.setText("Invalid Ticker / Unknown Network Error Occurred");
@@ -621,6 +636,9 @@ public class mWindow extends javax.swing.JFrame {
                 jPanel_graph.paintComponent(getGraphics());
                 jPanel_graph.validate();
                 jPanel_graph.update(getGraphics());
+
+                jTextField_quant.setText("Num shares");
+                jLabel_transaction.setText("Status: ");
 
                 validate();
                 update(getGraphics());

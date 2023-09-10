@@ -41,7 +41,7 @@ public class mListItem extends JPanel implements ListCellRenderer<Holding> {
                 jLabel2.setText("row2");
                 jLabel3.setText("row3");
 
-                jPanel2.setBackground(mWindow.foreground_color);
+                jPanel2.setBackground(Color.LIGHT_GRAY);// mWindow.foreground_color
 
                 javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
                 jPanel2.setLayout(jPanel2Layout);
