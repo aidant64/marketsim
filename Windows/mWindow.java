@@ -62,6 +62,7 @@ public class mWindow extends javax.swing.JFrame {
                 jButton_buy.setBackground(background_color);
                 jButton_refresh.setBackground(background_color);
                 jButton2_help.setBackground(background_color);
+                jLabel_portfolio.setBackground(background_color);
 
                 getContentPane().setBackground(background_color);
 
@@ -86,6 +87,7 @@ public class mWindow extends javax.swing.JFrame {
                 jButton_buy.setForeground(text_color);
                 jButton_refresh.setForeground(text_color);
                 jButton2_help.setForeground(text_color);
+                jLabel_portfolio.setForeground(Color.GRAY);
 
                 jButton_buy.setSelected(false);
                 jButton_sell.setSelected(false);
@@ -178,6 +180,8 @@ public class mWindow extends javax.swing.JFrame {
                 jLabel_transaction = new javax.swing.JLabel();
                 jButton_buy = new javax.swing.JButton();
                 jPanel_graph = new Graph(null);
+
+                jLabel_portfolio = new javax.swing.JLabel();
                 setBackgroundColors();
 
                 jPanel_wrapper.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
@@ -193,6 +197,9 @@ public class mWindow extends javax.swing.JFrame {
                 jLabel_cash.setToolTipText("");
                 jLabel_cash.setBorder(javax.swing.BorderFactory.createEmptyBorder(2, 5, 5,
                                 5));
+
+                jLabel_portfolio.setText("<html><u>portfolio</u></html>");
+                jLabel_portfolio.setBorder(BorderFactory.createEmptyBorder(5, 130, 3, 5));
 
                 jScrollpane.setBorder(null);
                 jScrollpane.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
@@ -237,6 +244,8 @@ public class mWindow extends javax.swing.JFrame {
                                                                 350, Short.MAX_VALUE)
                                                 .addComponent(jLabel_cash, javax.swing.GroupLayout.DEFAULT_SIZE,
                                                                 javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(jLabel_portfolio, javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                                javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                                 .addGroup(jPanel_HoldingsLayout.createSequentialGroup()
                                                                 .addContainerGap()
                                                                 .addComponent(jButton_refresh)
@@ -249,6 +258,7 @@ public class mWindow extends javax.swing.JFrame {
                                                 .addGroup(jPanel_HoldingsLayout.createSequentialGroup()
                                                                 .addComponent(jLabel_netWorth)
                                                                 .addComponent(jLabel_cash)
+                                                                .addComponent(jLabel_portfolio)
                                                                 .addPreferredGap(
                                                                                 javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                                 .addComponent(jScrollpane,
@@ -678,6 +688,8 @@ public class mWindow extends javax.swing.JFrame {
         private javax.swing.JTextField jTextField_quant;
         private javax.swing.JTextField jTextField_search;
         private Graph jPanel_graph;
+
+        private javax.swing.JLabel jLabel_portfolio;
         // End of variables declaration
 
 }
