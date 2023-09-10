@@ -289,7 +289,7 @@ public class mWindow extends javax.swing.JFrame {
 
                 jLabel_searchStatus.setText(" ");
 
-                jTextField_search.setText("ex: AAPL or IBM");
+                jTextField_search.setText("ex: AAPL or IBM ...");
                 jTextField_search.setMixingCutoutShape(null);
                 jTextField_search.addActionListener(new java.awt.event.ActionListener() {
                         public void actionPerformed(java.awt.event.ActionEvent evt) {
