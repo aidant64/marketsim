@@ -1,7 +1,7 @@
 # Stock Market Simulator Game
 
 Java Desktop GUI
-![a](https://github.com/athomas64/market-sim/assets/63829763/ba5354dc-9e13-4929-a322-0fd270adb7da)
+![Screenshot from 2023-09-12 21-33-33](https://github.com/aidant64/marketsim/assets/126053853/2351b778-3345-4e8b-a5d4-a751de94ea61)
 
 
 
