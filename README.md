@@ -6,7 +6,7 @@ Java Desktop GUI
 ## Easily Compile and Run:
 
 ```bash
-git clone https://github.com/aidant64/marketsim.git && cd market-sim/
+git clone https://github.com/aidant64/marketsim.git && cd marketsim/
 javac -d . Main/Main.java
 java Main.Main
 ```
