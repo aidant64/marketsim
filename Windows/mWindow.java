@@ -18,7 +18,7 @@ public class mWindow extends javax.swing.JFrame {
         public static final Color text_color = new Color(112, 35, 157), foreground_color = new Color(112, 35, 157),
                         background_color = new Color(220, 220, 220);
         public static final int BORDER_SIZE = 4, WINDOW_DEFAULT_WIDTH = 1100, WINDOW_DEFAULT_HEIGHT = 500,
-                        WINDOW_DEFAULT_X = 300, WINDOW_DEFAULT_Y = 300;
+                        WINDOW_DEFAULT_X = 32, WINDOW_DEFAULT_Y = 32;
         private final Logic logic;
 
         /**
