@@ -31,6 +31,7 @@ find . -type f -name "*.class" -delete
 ## Create JAR file
 
 ```bash
+cd marketsim/ && javac -d . Main/Main.java
 jar cfvM out.jar *
 java -jar out.jar
 ```
