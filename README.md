@@ -23,12 +23,17 @@ find . -type f -name "*.class" -delete
 ```
 
 
-
-
 ## Usage notes
 
 `msa_storage.txt` will be created in the user's home directory to store user info.
 
+
+## Create JAR file
+
+```bash
+jar cfvM out.jar *
+java -jar out.jar
+```
 
 
 ## Install Statistics For Mobile Android Version - 26,000 unique downloads
