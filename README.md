@@ -40,7 +40,8 @@ java -jar out.jar
 ## Install Statistics For Mobile Android Version - 26,000 unique downloads
 
 26,000 unique user installs
-<img width="1440" alt="b" src="https://github.com/athomas64/market-sim/assets/63829763/8a004835-2726-4c98-adfd-82dd28e8a21e">
+<img width="1440" alt="installs" src="https://github.com/aidant64/marketsim/assets/126053853/9872c9c2-b247-4cb3-b056-0514835b05f9">
+
 
 Source: This is a screenshot of my Google Play Store Developer Console
 
