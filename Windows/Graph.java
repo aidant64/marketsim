@@ -39,7 +39,7 @@ public class Graph extends JComponent {
         g2D.fillRect(0, 0, W.intValue(), H.intValue());
         g2D.setStroke(new BasicStroke(3f));
 
-        if (points.isEmpty()) {
+        if (points == null || points.isEmpty()) {
             g2D.setColor(mWindow.foreground_color);
             g2D.drawString("Chart Unavailable / Unknown Network Error", 10, 10);
             return;

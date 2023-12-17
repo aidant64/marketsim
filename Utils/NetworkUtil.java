@@ -14,16 +14,16 @@ public class NetworkUtil {
 
     private static final String API_KEY = "ce0a5niad3i6dc1cfff0ce0a5niad3i6dc1cfffg";
 
-    public static String queryTickerWebData(String ticker){
-        try{
+    public static String queryTickerWebData(String ticker) {
+        try {
             return queryWebsite(generateQueryAddress(ticker));
-        }catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
             return null;
         }
     }
 
-    private static String generateQueryAddress(String ticker){
+    private static String generateQueryAddress(String ticker) {
         String baseAddress = "https://finnhub.io/api/v1/quote?symbol=";
         return baseAddress + ticker + "&token=" + API_KEY;
     }
@@ -34,7 +34,7 @@ public class NetworkUtil {
 
         StringBuilder query = new StringBuilder();
         String inputLine;
-        while ((inputLine = in.readLine()) != null){
+        while ((inputLine = in.readLine()) != null) {
             query.append(inputLine).append("\n");
         }
 
@@ -42,7 +42,7 @@ public class NetworkUtil {
         return query.toString();
     }
 
-    public static String queryTickerCandles(String ticker){
+    public static String queryTickerCandles(String ticker) {
         ticker = ticker.toUpperCase();
         final String baseAddress = "https://finnhub.io/api/v1/stock/candle?symbol=";
 
@@ -52,29 +52,35 @@ public class NetworkUtil {
         ZonedDateTime now = ZonedDateTime.now(ZoneOffset.UTC);
         long end = now.toEpochSecond();
 
-        final String url = baseAddress + ticker + "&resolution=D&from="+start+"&to="+end+"&token="+API_KEY;
+        final String url = baseAddress + ticker + "&resolution=D&from=" + start + "&to=" + end + "&token=" + API_KEY;
 
-        try{
+        try {
             return queryWebsite(url);
-        }catch (Exception e){
+        } catch (Exception e) {
             return "-1";
         }
 
     }
 
-    public static ArrayList<Pair> getCandles(String searchText){
+    public static ArrayList<Pair> getCandles(String searchText) {
         searchText = searchText.toUpperCase();
 
         String data = NetworkUtil.queryTickerCandles(searchText);
+        if (data == null || data.isEmpty()) {
+            return null;
+        }
+
         List<Double> candles = ParseUtil.parseCandlesWebData(data);
+        if (candles == null || candles.isEmpty()) {
+            return null;
+        }
 
         ArrayList<Pair> points = new ArrayList<>();
-        for(int i = 0; i < candles.size(); i++){
+        for (int i = 0; i < candles.size(); i++) {
             points.add(new Pair(i, candles.get(i).floatValue()));
         }
 
         return points;
     }
-
 
 }
